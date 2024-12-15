@@ -34,21 +34,43 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-54Q9YZ32ZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-54Q9YZ32ZX');
+</script>
   </head>
   <body>
+    <!-- pc header -->
     <header class="fix-header">
       <div class="content">
           <nav class="navbar">
+            <!-- table & mobile menu -->
+             <label for="menu-checkbox" class="toggle-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path 
+                  fill = "currenColor"
+                  d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+              </svg>
+             </label>
             <!-- Logo -->
-            <a href="#"><img src="./assets/img/logo.svg" alt="Besnik." /></a>
+            <a href="#" class="logo"><img src="./assets/img/logo.svg" alt="Besnik." /></a>
 
             <!-- Navigation  -->
-            <ul>
+            <ul id="pc-nav">
               <li><a href="#">Home</a></li>
               <li><a href="#features">Feature</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#resources">Resources</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li class="show-on-mobile separate" ><a href="#!">Sign In</a></li>
+              <li class="show-on-mobile"><a href="#!">Sign Up</a></li>
             </ul>
 
             <div class="actions">
@@ -58,6 +80,26 @@
           </nav>
       </div>
     </header>
+
+    <!-- tablet&mobile header -->
+     <header class="mobile-header">
+      <input type="checkbox"
+        name=""
+        id="menu-checkbox" 
+        class="menu-checkbox"
+        hidden/>
+      <label for="menu-checkbox" class="menu-overlay"></label>
+      <!-- menu content -->
+       <div class="menu-drawer">
+        <a href="#" class=""><img src="./assets/img/logo.svg" alt="Besnik." /></a>
+        <ul id="mobile-nav"></ul>
+        <script>
+          const pcNav = document.querySelector("#pc-nav")
+          const mobileNav = document.querySelector("#mobile-nav")
+          mobileNav.innerHTML = pcNav.innerHTML;
+        </script>
+       </div>
+     </header>
     <main>
       <!-- Hero -->
       <div class="hero-wrap">
@@ -99,7 +141,7 @@
           </div>
           <div class="row row-desc">
             <p class="desc">More than 45,000+ companies trust besnik</p>
-            <p class="desc">5 Star Ratings (2k+ Review)</p>
+            <p class="desc hide-on-mobile">5 Star Ratings (2k+ Review)</p>
           </div>
           <div class="images">
             <a href="#!">
@@ -270,6 +312,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="view-all show-on-mobile">
+          <a href="#!" class="btn">View All Properties</a>
         </div>
         </div>
       </div>
